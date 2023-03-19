@@ -7,7 +7,7 @@ builder = SparkSession.builder\
     .appName('spark-bigquery-demo') \
     .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
     .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog") \
-    .config("spark.sql.warehouse.dir", "gs://lakehouse-prod/test/")
+    .config("spark.sql.warehouse.dir", "gs://lakehouse-prod/spark-warehouse/")
 
 spark = configure_spark_with_delta_pip(builder).getOrCreate()
 
@@ -40,11 +40,11 @@ def create_schema_gcs(schema_data):
         for path in schema['path']:
             gcs_path = path['path']
             try:
-                spark.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_name};")
+                spark.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_name} ;")
                 print(f"Schema: {schema_name} created")
             except Exception as error:
-                print(error)
-    spark.sql("show databases").show()
+                raise error
+    spark.sql("show schemas").show()
 
 def main():
     '''
