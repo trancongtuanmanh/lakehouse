@@ -10,29 +10,29 @@ schema:
       - path: 'gs://lakehouse-prod/spark-warehouse/gold.db/'
 
 table:
-  - name: business
-    schema: bronze
-    source: 'gs://raw_bucket_data/yelp/json/yelp_academic_dataset_business.json'
-    path:
-      - path: 'gs://lakehouse-prod/spark-warehouse/bronze.db/business'
-  # - name: review
+  # - name: business
   #   schema: bronze
-  #   source: 'gs://raw_bucket_data/yelp/json/yelp_academic_dataset_review.json'
+  #   source: 'gs://raw_bucket_data/yelp/json/yelp_academic_dataset_business.json'
   #   path:
-  #     - path: 'gs://lakehouse-prod/spark-warehouse/bronze.db/review'
-  - name: user
+  #     - path: 'gs://lakehouse-prod/spark-warehouse/bronze.db/business'
+  - name: review
     schema: bronze
-    source: 'gs://raw_bucket_data/yelp/json/yelp_academic_dataset_user.json'
+    source: 'gs://raw_bucket_data/yelp/json/yelp_academic_dataset_review.json'
     path:
-      - path: 'gs://lakehouse-prod/spark-warehouse/bronze.db/user'
-  - name: tip
-    schema: bronze
-    source: 'gs://raw_bucket_data/yelp/json/yelp_academic_dataset_tip.json'
-    path:
-      - path: 'gs://lakehouse-prod/spark-warehouse/bronze.db/tip'
-  - name: checkin
-    schema: bronze
-    source: 'gs://raw_bucket_data/yelp/json/yelp_academic_dataset_checkin.json'
-    path:
-      - path: 'gs://lakehouse-prod/spark-warehouse/bronze.db/checkin'
+      - path: 'gs://lakehouse-prod/spark-warehouse/bronze.db/review'
+  # - name: user
+  #   schema: bronze
+  #   source: 'gs://raw_bucket_data/yelp/json/yelp_academic_dataset_user.json'
+  #   path:
+  #     - path: 'gs://lakehouse-prod/spark-warehouse/bronze.db/user'
+  # - name: tip
+  #   schema: bronze
+  #   source: 'gs://raw_bucket_data/yelp/json/yelp_academic_dataset_tip.json'
+  #   path:
+  #     - path: 'gs://lakehouse-prod/spark-warehouse/bronze.db/tip'
+  # - name: checkin
+  #   schema: bronze
+  #   source: 'gs://raw_bucket_data/yelp/json/yelp_academic_dataset_checkin.json'
+  #   path:
+  #     - path: 'gs://lakehouse-prod/spark-warehouse/bronze.db/checkin'
     
